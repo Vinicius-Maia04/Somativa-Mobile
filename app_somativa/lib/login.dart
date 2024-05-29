@@ -16,7 +16,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   TextEditingController _user = TextEditingController();
   TextEditingController _password = TextEditingController();
-  String users_url = 'http://10.109.83.12:3000/users';
+  String users_url = 'http://192.168.15.123:3000/users';
   List data = [];
 
   _verifyLogin()async{
@@ -30,7 +30,7 @@ class _LoginState extends State<Login> {
           ElevatedButton(onPressed: (){
             Navigator.pop(context);
           }, child: Text('Ok', style: TextStyle(color: Colors.white),),
-          style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(const Color.fromARGB(255, 179, 12, 0))),),
+          style: ButtonStyle(backgroundColor: WidgetStatePropertyAll(Color.fromARGB(255, 179, 12, 0))),),
         ],
       );
       showDialog(
@@ -141,7 +141,7 @@ class _LoginState extends State<Login> {
                   }, 
                   child: Text('Entrar', style: TextStyle(color: Colors.white, fontSize: 20),), 
                   style: ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll(const Color.fromARGB(255, 179, 12, 0)),
+                    backgroundColor: WidgetStatePropertyAll(const Color.fromARGB(255, 179, 12, 0)),
                   ),),
                 ),
                 Padding(padding: EdgeInsets.all(5)),

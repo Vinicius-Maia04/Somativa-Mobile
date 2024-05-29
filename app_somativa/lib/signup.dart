@@ -10,7 +10,7 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  String users_url = 'http://10.109.83.12:3000/users';
+  String users_url = 'http://192.168.15.123:3000/users';
   List data = [];
   TextEditingController _user = TextEditingController();
   TextEditingController _password = TextEditingController();
@@ -19,7 +19,7 @@ class _SignUpState extends State<SignUp> {
     showAlertDialog1(BuildContext context) { 
       AlertDialog alerta = AlertDialog(
         title: Text("Erro no Cadastro", style: TextStyle(color: Colors.white),),
-        content: Text("Usuário já Cadastrado!", style: TextStyle(color: Colors.white),),
+        content: Text("Usuário Inválido ou já Cadastrado!", style: TextStyle(color: Colors.white),),
         backgroundColor: Color.fromARGB(255, 31, 31, 31),
         actions: [
           ElevatedButton(onPressed: (){
@@ -54,7 +54,7 @@ class _SignUpState extends State<SignUp> {
       }
     }
 
-    if (userFound == true){
+    if (userFound == true || _user.text==''){
       showAlertDialog1(context);
     } else {
       http.post(Uri.parse(users_url),
@@ -145,7 +145,7 @@ class _SignUpState extends State<SignUp> {
                   }, 
                   child: Text('Cadastrar-se', style: TextStyle(color: Colors.white, fontSize: 20),), 
                   style: ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll(const Color.fromARGB(255, 179, 12, 0)),
+                    backgroundColor: WidgetStatePropertyAll(const Color.fromARGB(255, 179, 12, 0)),
                   ),),
                 ),
               ],
